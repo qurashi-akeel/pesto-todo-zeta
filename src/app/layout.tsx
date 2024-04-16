@@ -8,8 +8,13 @@ import NavMenubar from "@/components/nav/menu-bar";
 const fontSans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "Pesto Todo",
-  description: "Fullstack Todo App",
+  title: "Pesto Todo Zeta",
+  description:
+    "A fullstack todo app built with Next.js, Typescript and Tailwind CSS",
+  authors: {
+    name: "Qurashi Akeel",
+    url: "https://github.com/qurashi-akeel",
+  },
 };
 
 export default function RootLayout({
