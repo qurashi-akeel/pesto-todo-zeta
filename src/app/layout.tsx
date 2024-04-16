@@ -3,6 +3,7 @@ import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components";
+import NavMenubar from "@/components/nav/menu-bar";
 
 const fontSans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -20,13 +21,19 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-background font-sans",
           fontSans.variable
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
-        </ThemeProvider>
+        <section className="max-w-3xl p-10 mx-auto">
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <NavMenubar />
+            {children}
+            <footer className="text-muted-foreground text-sm text-center">
+              Build by Qurashi Akeel - {new Date().getFullYear()}
+            </footer>
+          </ThemeProvider>
+        </section>
       </body>
     </html>
   );
