@@ -35,7 +35,7 @@ export default function RootLayout({
             <NavMenubar />
             {children}
             <footer className="text-muted-foreground text-sm text-center">
-              Build by Qurashi Akeel - {new Date().getFullYear()}
+              Build with ❤️ by Qurashi Akeel - {new Date().getFullYear()}
             </footer>
           </ThemeProvider>
         </section>

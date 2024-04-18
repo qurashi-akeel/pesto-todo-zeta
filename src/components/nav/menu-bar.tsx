@@ -29,10 +29,10 @@ export default function NavMenubar() {
             <Link href={"/docs"}>
               <MenubarItem>Documentation</MenubarItem>
             </Link>
-            <a href="https://github.com/username/project">
+            <a href="https://github.com/qurashi-akeel/pesto-todo-zeta">
               <MenubarItem>Code on Github</MenubarItem>
             </a>
-            <a href={"https://www.linkedin.com/in/username"}>
+            <a href={"https://www.linkedin.com/in/qurashi"}>
               <MenubarItem>About Developer</MenubarItem>
             </a>
           </MenubarContent>

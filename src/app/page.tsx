@@ -15,7 +15,7 @@ export default function Home() {
           TypeScript. It is available on{" "}
           <a
             className="text-blue-500 underline"
-            href="https://github.com/Qurashi/pesto-todo-zeta"
+            href="https://github.com/qurashi-akeel/pesto-todo-zeta"
             target="_blank"
             rel="noreferrer"
           >

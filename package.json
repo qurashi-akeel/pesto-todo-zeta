@@ -5,7 +5,7 @@
   "description": "A fullstack todo app built with Next.js, Typescript and Tailwind CSS",
   "author": {
     "name": "Qurashi Akeel",
-    "url": "https://github.com/users/qurashi-akeel/"
+    "url": "https://github.com/qurashi-akeel/"
   },
   "scripts": {
     "dev": "next dev",
