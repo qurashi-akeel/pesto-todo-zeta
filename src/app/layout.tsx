@@ -34,7 +34,7 @@ export default function RootLayout({
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <NavMenubar />
             {children}
-            <footer className="text-muted-foreground text-sm text-center">
+            <footer className="text-muted-foreground text-sm text-center bg-muted py-2">
               Build with ❤️ by Qurashi Akeel - {new Date().getFullYear()}
             </footer>
           </ThemeProvider>

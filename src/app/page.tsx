@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-between min-h-[80vh] py-4">
+    <main className="flex flex-col items-center justify-between min-h-[75vh] py-4">
       <div className="text-center">
         <h1 className="text-3xl md:text-6xl font-bold mt-14 mb-5">
           Pesto Todo Zeta
