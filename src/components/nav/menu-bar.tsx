@@ -26,7 +26,7 @@ export default function NavMenubar() {
         <MenubarMenu>
           <MenubarTrigger>Links</MenubarTrigger>
           <MenubarContent>
-            <a href="https://github.com/qurashi-akeel/pesto-todo-zeta/blob/master/README.md">
+            <a href="https://github.com/qurashi-akeel/pesto-todo-zeta/blob/master/README.md#pesto-todo-zeta">
               <MenubarItem>Documentation</MenubarItem>
             </a>
             <a href="https://github.com/qurashi-akeel/pesto-todo-zeta">
