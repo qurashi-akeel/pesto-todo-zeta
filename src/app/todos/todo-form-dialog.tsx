@@ -18,6 +18,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { TODO_STATUSES } from "@/constants";
 
 type TodoFormDailogProps = {
   formType: "edit" | "create";
@@ -60,10 +61,10 @@ export default function TodoFormDailog({ formType }: TodoFormDailogProps) {
                 <SelectValue placeholder="Choose State" />
               </SelectTrigger>
               <SelectContent position="popper">
-                <SelectItem value="planned">Planned</SelectItem>
-                <SelectItem value="inprogress">In Progress</SelectItem>
-                <SelectItem value="done">Done</SelectItem>
-                <SelectItem value="deleted">Deleted</SelectItem>
+                <SelectItem value="PLANNED">{TODO_STATUSES.PLANNED}</SelectItem>
+                <SelectItem value="IN_PROGRESS">{TODO_STATUSES.IN_PROGRESS}</SelectItem>
+                <SelectItem value="COMPLETED">{TODO_STATUSES.COMPLETED}</SelectItem>
+                <SelectItem value="DELETED">{TODO_STATUSES.DELETED}</SelectItem>
               </SelectContent>
             </Select>
           </div>
