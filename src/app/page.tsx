@@ -9,6 +9,11 @@ export default function Home() {
           A fast and productive app for managing your todos.
         </p>
 
+        <p className="text-red-400 border-red-400 border w-fit m-auto py-2 px-4 my-20">
+          <strong>PTZE</strong> is under active development so all features may
+          not work properly.
+        </p>
+
         <p className="mt-8">
           Pesto Todo Zeta is a todo app that allows you to create, edit, change
           state, and delete todos. It is built with Nextjs, Tailwind CSS and
