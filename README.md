@@ -25,6 +25,7 @@ pnpm install
 ```
 
 - Copy the .env.example file and create your own .env.local file:
+  - Get resend api key from [Resend](https://resend.com/api-keys).
 
 ```
 cp .env.example .env.local
