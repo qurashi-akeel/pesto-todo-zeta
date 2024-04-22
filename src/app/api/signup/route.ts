@@ -20,12 +20,14 @@ export async function POST(req: Request, res: Response) {
         message: "User already exists - username taken",
       });
     }
+
     const existingUserEmail = await User.findOne({ email });
+
     if (existingUserEmail) {
       if (existingUserEmail.isVerified) {
         return Response.json({
           status: 400,
-          message: "User already exists - email registered",
+          message: "User already exists - email registered and verified.",
         });
       } else {
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -38,10 +40,25 @@ export async function POST(req: Request, res: Response) {
         );
         await existingUserEmail.save();
 
-        return Response.json({
-          status: 400,
-          message: "User already exists - email not verified",
-        });
+        try {
+          const emailsent = await sendVerificationEmail(
+            email,
+            username,
+            existingUserEmail.verifyCode
+          );
+          return Response.json({
+            status: 400,
+            message: "User already exists - email not verified",
+            emailsent,
+          });
+        } catch (error) {
+          console.log(error);
+          return Response.json({
+            status: 400,
+            message: "User already exists - email not verified",
+            emailsent: error,
+          });
+        }
       }
     } else {
       const hashedPassword = await bcrypt.hash(password, 10);
@@ -58,10 +75,15 @@ export async function POST(req: Request, res: Response) {
       });
 
       if (user) {
-        await sendVerificationEmail(email, username, user.verifyCode);
+        const emailsent = await sendVerificationEmail(
+          email,
+          username,
+          user.verifyCode
+        );
         return Response.json({
           status: 201,
           message: "User created",
+          emailsent,
         });
       } else {
         return Response.json({
@@ -70,11 +92,11 @@ export async function POST(req: Request, res: Response) {
         });
       }
     }
-  } catch (error) {
+  } catch (error: any) {
     console.log("Error creating user: ", error);
     return Response.json({
       status: 500,
-      message: "Error creating user",
+      message: error.errorResponse.errmsg || "Error creating user",
     });
   }
 }
