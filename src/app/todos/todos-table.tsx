@@ -246,10 +246,6 @@ export default function TodosDataTable() {
       columnFilters,
       columnVisibility,
       rowSelection,
-      // pagination: {
-      //   pageSize: 5,
-      //   pageIndex: 0,
-      // },
     },
   });
 

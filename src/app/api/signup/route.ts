@@ -1,11 +1,9 @@
 import dbConnect from "@/lib/dbConnect";
 import { User } from "@/model/User";
 import bcrypt from "bcryptjs";
-import { NextRequest, NextResponse } from "next/server";
-
 import { sendVerificationEmail } from "@/helpers/sendVerificationEmail";
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: Request, res: Response) {
   await dbConnect();
 
   try {
