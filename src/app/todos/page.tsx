@@ -2,7 +2,7 @@ import TodoFormDailog from "./todo-form-dialog";
 import TodosDataTable, { TodoType } from "./todos-table";
 
 // fetch todos from DB
-export const data: TodoType[] = [
+const data: TodoType[] = [
   {
     id: "m5gr84i9",
     description: "Description of the test todo 1",
