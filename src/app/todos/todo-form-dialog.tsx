@@ -19,12 +19,17 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { TODO_STATUSES } from "@/constants";
+import { TodoType } from "./todos-table";
 
 type TodoFormDailogProps = {
   formType: "edit" | "create";
+  todo?: TodoType;
 };
 
-export default function TodoFormDailog({ formType }: TodoFormDailogProps) {
+export default function TodoFormDailog({
+  formType,
+  todo,
+}: TodoFormDailogProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -48,22 +53,34 @@ export default function TodoFormDailog({ formType }: TodoFormDailogProps) {
         <div className="grid gap-4 py-4">
           <div className="flex flex-col space-y-1.5">
             <Label htmlFor="title">Title</Label>
-            <Input id="title" placeholder="Title of your todo" />
+            <Input
+              id="title"
+              placeholder="Title of your todo"
+              value={todo?.title || ""}
+            />
           </div>
           <div className="flex flex-col space-y-1.5">
             <Label htmlFor="title">Description</Label>
-            <Textarea id="title" placeholder="Title of your todo" />
+            <Textarea
+              id="title"
+              placeholder="Title of your todo"
+              value={todo?.description || ""}
+            />
           </div>
           <div className="flex flex-col space-y-1.5">
             <Label htmlFor="state">State</Label>
-            <Select>
+            <Select defaultValue={todo?.status}>
               <SelectTrigger id="state">
                 <SelectValue placeholder="Choose State" />
               </SelectTrigger>
               <SelectContent position="popper">
                 <SelectItem value="PLANNED">{TODO_STATUSES.PLANNED}</SelectItem>
-                <SelectItem value="IN_PROGRESS">{TODO_STATUSES.IN_PROGRESS}</SelectItem>
-                <SelectItem value="COMPLETED">{TODO_STATUSES.COMPLETED}</SelectItem>
+                <SelectItem value="IN_PROGRESS">
+                  {TODO_STATUSES.IN_PROGRESS}
+                </SelectItem>
+                <SelectItem value="COMPLETED">
+                  {TODO_STATUSES.COMPLETED}
+                </SelectItem>
                 <SelectItem value="DELETED">{TODO_STATUSES.DELETED}</SelectItem>
               </SelectContent>
             </Select>
