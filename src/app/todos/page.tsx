@@ -18,7 +18,7 @@ const AllTodos = async () => {
 
         <div className="mx-1">
           <h2 className="text-xl font-semibold -mt-2">List of all Todos</h2>
-          <TodosDataTable data={data} />
+          <TodosDataTable data={JSON.parse(JSON.stringify(data))} />
         </div>
       </section>
     </main>

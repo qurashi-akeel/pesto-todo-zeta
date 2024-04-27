@@ -61,9 +61,12 @@ export default function TodoFormDailog({
             const description = formData.get("description");
             const status = formData.get("state");
             const userId = auth().userId;
-            if (!title || !status)
+            if (!title || !status) {
               throw new Error("Title and status are required.");
-            if (!userId) throw new Error("Are you logged in?");
+            }
+            if (!userId) {
+              throw new Error("Are you logged in?");
+            }
             const newTodo = {
               title,
               description,
