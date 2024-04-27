@@ -29,7 +29,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           user = await User.findOne({ email: email });
 
           if (!user) {
-            console.log({ "user not found": user });
             throw new Error("No user found with that email.");
           }
 
@@ -39,7 +38,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           }
 
           // return user object with the their profile data ✓
-          console.log("loggged in...");
           return user;
         } catch (error: any) {
           throw new Error(error.message || "Authentication failed");
