@@ -39,6 +39,7 @@ import { formatDate } from "@/lib/utils";
 
 export type TodoType = {
   id: string;
+  userId: string;
   description: string;
   status: TodoStatusType;
   date: Date;
@@ -46,28 +47,6 @@ export type TodoType = {
 };
 
 export const columns: ColumnDef<TodoType>[] = [
-  {
-    id: "select",
-    header: ({ table }) => (
-      <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && "indeterminate")
-        }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
-      />
-    ),
-    cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-      />
-    ),
-    enableSorting: false,
-    enableHiding: false,
-  },
   {
     accessorKey: "title",
     header: ({ column }) => {
@@ -255,8 +234,7 @@ export default function TodosDataTable({ data }: { data: TodoType[] }) {
       </div>
       <div className="flex items-center justify-end space-x-2 py-4">
         <div className="flex-1 text-sm text-muted-foreground">
-          {table.getFilteredSelectedRowModel().rows.length} of{" "}
-          {table.getFilteredRowModel().rows.length} row(s) selected.
+          Total {table.getPageCount()} Pages - ({table.getRowCount()} Todos).
         </div>
         <div className="space-x-2">
           <Button

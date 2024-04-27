@@ -5,6 +5,7 @@ import TodosDataTable, { TodoType } from "./todos-table";
 const data: TodoType[] = [
   {
     id: "m5gr84i9",
+    userId: "123",
     description: "Description of the test todo 1",
     status: "IN_PROGRESS",
     date: new Date("2024-04-01"),
@@ -12,6 +13,7 @@ const data: TodoType[] = [
   },
   {
     id: "m5g7yg4i9",
+    userId: "1234",
     description: "Description of the test todo 2",
     status: "PLANNED",
     date: new Date("2024-04-03"),
@@ -19,6 +21,7 @@ const data: TodoType[] = [
   },
   {
     id: "m5gedg4i9",
+    userId: "1235",
     description: "Description of the test todo 3",
     status: "COMPLETED",
     date: new Date("2024-04-12"),
@@ -26,6 +29,7 @@ const data: TodoType[] = [
   },
   {
     id: "m5fref4i9",
+    userId: "1236",
     description: "Description of the test todo 4",
     status: "PLANNED",
     date: new Date("2024-04-06"),
@@ -33,6 +37,7 @@ const data: TodoType[] = [
   },
   {
     id: "m5vfvfvg",
+    userId: "1239",
     description: "Description of the test todo 5",
     status: "PLANNED",
     date: new Date("2024-04-10"),
@@ -40,6 +45,7 @@ const data: TodoType[] = [
   },
   {
     id: "fsdfjvkf",
+    userId: "1236",
     description: "Description of the test todo 6",
     status: "DELETED",
     date: new Date("2024-04-15"),
@@ -47,6 +53,7 @@ const data: TodoType[] = [
   },
   {
     id: "m5hfti9",
+    userId: "123",
     description: "Description of the test todo 7",
     status: "IN_PROGRESS",
     date: new Date("2024-04-01"),
@@ -54,6 +61,7 @@ const data: TodoType[] = [
   },
   {
     id: "m5kugy4i9",
+    userId: "123",
     description: "Description of the test todo 8",
     status: "COMPLETED",
     date: new Date("2024-04-02"),
@@ -61,6 +69,7 @@ const data: TodoType[] = [
   },
   {
     id: "fvkdvjfhd",
+    userId: "1234",
     description: "Description of the test todo 9",
     status: "IN_PROGRESS",
     date: new Date("2024-04-05"),
@@ -68,6 +77,7 @@ const data: TodoType[] = [
   },
   {
     id: "fvkdvdfshd",
+    userId: "1236",
     description: "Description of the test todo 10",
     status: "IN_PROGRESS",
     date: new Date("2024-04-05"),
@@ -75,6 +85,7 @@ const data: TodoType[] = [
   },
   {
     id: "kdfhxsrdfb",
+    userId: "1237",
     description: "Description of the test todo 10",
     status: "COMPLETED",
     date: new Date("2024-04-07"),
