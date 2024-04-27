@@ -9,7 +9,6 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from "../ui/menubar";
-import { Button } from "../ui/button";
 
 export default function ModeToggle() {
   const { setTheme } = useTheme();
