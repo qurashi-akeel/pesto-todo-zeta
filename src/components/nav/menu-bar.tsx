@@ -8,6 +8,7 @@ import {
   MenubarTrigger,
 } from "@/components/ui/menubar";
 import { ModeToggle } from "..";
+import UserAvatar from "./user-avatar";
 
 export default function NavMenubar() {
   return (
@@ -38,7 +39,10 @@ export default function NavMenubar() {
           </MenubarContent>
         </MenubarMenu>
       </div>
-      <ModeToggle />
+      <div className="flex items-center">
+        <ModeToggle />
+        <UserAvatar />
+      </div>
     </Menubar>
   );
 }
