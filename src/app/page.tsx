@@ -10,7 +10,7 @@ export default function Home() {
         </p>
 
         <p className="text-red-400 border-red-400 border w-fit m-auto py-2 px-4 my-20">
-          <strong>PTZE (0.2.4)</strong> is under active development so all
+          <strong>PTZE (0.3.4)</strong> is under active development so all
           features may not work properly.
         </p>
 

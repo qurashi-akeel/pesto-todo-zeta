@@ -16,7 +16,6 @@ import {
 import { ArrowUpDown, ChevronDown } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -35,14 +34,13 @@ import {
 } from "@/components/ui/table";
 import { TODO_STATUSES, TodoStatusType } from "@/constants";
 import Link from "next/link";
-import { formatDate } from "@/lib/utils";
 
 export type TodoType = {
-  id: string;
+  _id: string;
   userId: string;
   description: string;
   status: TodoStatusType;
-  date: Date;
+  createdAt: Date;
   title: string;
 };
 
@@ -72,13 +70,6 @@ export const columns: ColumnDef<TodoType>[] = [
     },
   },
   {
-    accessorKey: "date",
-    header: () => <div className="">Created Date</div>,
-    cell: ({ row }) => {
-      return <div className="">{formatDate(row.getValue("date"))}</div>;
-    },
-  },
-  {
     id: "status",
     header: "Status",
     enableHiding: true,
@@ -101,7 +92,7 @@ export const columns: ColumnDef<TodoType>[] = [
               <DropdownMenuItem
                 key={status}
                 onClick={() => {
-                  console.log(todo.id);
+                  // console.log(todo._id);
                 }}
               >
                 {TODO_STATUSES[status as TodoStatusType].replace("_", " ")}
@@ -146,7 +137,7 @@ export default function TodosDataTable({ data }: { data: TodoType[] }) {
     <div className="w-full">
       <div className="flex items-center py-4">
         <Input
-          placeholder="Filter titles..."
+          placeholder="Search titles..."
           value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn("title")?.setFilterValue(event.target.value)
@@ -209,7 +200,7 @@ export default function TodosDataTable({ data }: { data: TodoType[] }) {
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
-                      <Link href={`/todos/${row.original.id}`}>
+                      <Link href={`/todos/${row.original._id}`}>
                         {flexRender(
                           cell.column.columnDef.cell,
                           cell.getContext()
