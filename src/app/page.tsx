@@ -1,4 +1,9 @@
-export default function Home() {
+import { auth } from "@/auth";
+
+export default async function Home() {
+  const session = (await auth()) as any;
+
+  console.log({ authenticatedUser: session });
   return (
     <main className="flex flex-col items-center justify-between min-h-[75vh] py-4">
       <div className="text-center">
