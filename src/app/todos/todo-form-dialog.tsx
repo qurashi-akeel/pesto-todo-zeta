@@ -50,28 +50,40 @@ export default function TodoFormDailog({
             {formType === "create" && "Create todo"}
           </DialogTitle>
           <DialogDescription>
-            {formType === "create" && "Save your todos in one-click."}
-            {formType === "edit" &&
-              "Make changes to your todo & click save changes."}
+            Title and status are required so, make sure that they are filled
+            properly.
           </DialogDescription>
         </DialogHeader>
         <form
           action={async (formData: FormData) => {
             "use server";
+            const title = formData.get("title");
+            const description = formData.get("description");
+            const status = formData.get("state");
+            const userId = auth().userId;
+            if (!title || !status)
+              throw new Error("Title and status are required.");
+            if (!userId) throw new Error("Are you logged in?");
             const newTodo = {
-              title: formData.get("title"),
-              description: formData.get("description"),
-              status: formData.get("state"),
-              userId: auth().userId,
+              title,
+              description,
+              status,
+              userId,
             };
             await dbConnect();
-            await Todo.create(newTodo);
-            revalidatePath("/todos");
+            try {
+              await Todo.create(newTodo);
+            } catch (error: any) {
+              throw new Error(error.message);
+            }
+            revalidatePath("/todos", "layout");
           }}
         >
           <div className="grid gap-4 py-4">
             <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="title">Title</Label>
+              <Label htmlFor="title">
+                Title <span className="text-red-500">*</span>
+              </Label>
               <Input
                 id="title"
                 name="title"
@@ -89,7 +101,9 @@ export default function TodoFormDailog({
               />
             </div>
             <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="state">State</Label>
+              <Label htmlFor="state">
+                State <span className="text-red-500">*</span>
+              </Label>
               <Select defaultValue={todo?.status} name="state">
                 <SelectTrigger id="state">
                   <SelectValue placeholder="Choose State" />

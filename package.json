@@ -1,6 +1,6 @@
 {
   "name": "pesto-todo-zeta",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "private": true,
   "description": "A fullstack todo app built with Next.js, Typescript and Tailwind CSS",
   "author": {

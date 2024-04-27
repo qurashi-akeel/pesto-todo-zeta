@@ -38,3 +38,25 @@ Accordingly change the contents of .env.local as per your environment.
 ```
 pnpm dev
 ```
+
+## Completed functionality
+
+- [x] Add config (editor, prettier etc)
+- [x] Add tanstack table and radax UI
+- [x] Models for create/edit todo
+- [x] Theme (dark/light/system)
+- [x] Setup API routes
+- [x] Database (mongoDB) Integration
+- [x] Complete Authentication
+- [x] Create todo (without error handling)
+- [x] View all todos
+- [x] Mark fields as required in create/edit todo
+- [x] Error handling for empty create todo
+
+## Next tasks
+
+- [ ] Delete todo
+- [ ] View Single Todo
+- [ ] Trim description in table
+- [ ] Edit todo
+- [ ] Error handling
