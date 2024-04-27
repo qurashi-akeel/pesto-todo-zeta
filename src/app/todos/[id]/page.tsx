@@ -17,9 +17,9 @@ const SingleTodo = () => {
       {/* View Single todo */}
       <div className="w-full border">
         <div className="flex justify-between items-center py-4 px-5 flex-wrap border">
-          <h2 className="text-xl font-semibold -mt-2">{todo.title}</h2>
-          <p>{todo.status}</p>
-          <p>{formatDate(todo.date, true).toUpperCase()}</p>
+          <h2 className="text-xl font-semibold p-2">{todo.title}</h2>
+          <p className="p-2">{todo.status}</p>
+          <p className="p-2">{formatDate(todo.date, true).toUpperCase()}</p>
         </div>
         <div className="">
           <div className="float-right my-4 mx-10">
