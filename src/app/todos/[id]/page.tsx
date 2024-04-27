@@ -4,10 +4,11 @@ import { TODO_STATUSES } from "@/constants";
 import { TodoType } from "../todos-table";
 
 const todo = {
-  id: "m5gr84i9",
+  _id: "m5gr84i9",
+  userId: "34rtyfghv",
   description: "Description of the test todo 1",
   status: TODO_STATUSES.IN_PROGRESS,
-  date: new Date("2024-04-01"),
+  createdAt: new Date("2024-04-01"),
   title: "todo title 1",
 } as TodoType;
 
@@ -19,7 +20,9 @@ const SingleTodo = () => {
         <div className="flex justify-between items-center py-4 px-5 flex-wrap border">
           <h2 className="text-xl font-semibold p-2">{todo.title}</h2>
           <p className="p-2">{todo.status}</p>
-          <p className="p-2">{formatDate(todo.date, true).toUpperCase()}</p>
+          <p className="p-2">
+            {formatDate(todo.createdAt, true).toUpperCase()}
+          </p>
         </div>
         <div className="">
           <div className="float-right my-4 mx-10">
@@ -32,4 +35,5 @@ const SingleTodo = () => {
     </div>
   );
 };
+
 export default SingleTodo;
